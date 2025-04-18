@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Noted",
   "description": "Always wished Substack had a 'schedule-a-note' feature? This is it.",
-  "version": "1.0",
+  "version": "1.0.0",
   "permissions": [
     "storage",
     "alarms",
