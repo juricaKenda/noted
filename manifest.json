@@ -1,0 +1,26 @@
+{
+  "manifest_version": 3,
+  "name": "Noted",
+  "description": "Always wished Substack had a 'schedule-a-note' feature? This is it.",
+  "version": "1.0",
+  "permissions": [
+    "storage",
+    "alarms",
+    "cookies"
+  ],
+  "host_permissions": [
+    "https://substack.com/"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "icons": {
+    "16": "images/logo_16.png",
+    "48": "images/logo_48.png",
+    "128": "images/logo_128.png"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "images/logo_128.png"
+  }
+}

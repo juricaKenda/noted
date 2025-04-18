@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Noted</title>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 16px;
+      background-color: #f9f9f9;
+      width: 320px;
+    }
+
+    h2 {
+      font-size: 1.25rem;
+      margin-bottom: 12px;
+      color: #333;
+      text-align: center;
+      letter-spacing: 2px;
+    }
+
+    .input-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    textarea#noteContent,
+    input#timeSlot,
+    #scheduleButton {
+      width: 100%;
+      padding: 10px;
+      font-size: 0.9rem;
+      border-radius: 8px;
+      box-sizing: border-box;
+    }
+
+    #scheduleButton {
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+  #scheduleButton.success {
+      background-color: #28a745;
+      color: white;
+  }
+
+  #scheduleButton:not(.success):hover {
+      background-color: #e65c14;
+  }
+
+  #scheduleButton.success:hover {
+      background-color: #218838;
+  }
+
+    textarea#noteContent {
+      font-family: 'Inter', sans-serif;
+      border: 1px solid #ccc;
+      resize: vertical;
+      min-height: 80px;
+      background-color: #fff;
+    }
+
+    input#timeSlot {
+      border: 1px solid #ccc;
+      background-color: #fff;
+    }
+
+    #scheduleButton {
+      background-color: #ff6719;
+      color: white;
+      border: none;
+      margin-top: 8px;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+    }
+
+    #scheduleButton:hover {
+      background-color: #e65c14;
+    }
+
+    #successMessage,
+    #errorMessage {
+      margin-top: 12px;
+      font-size: 0.85rem;
+      padding: 8px;
+      border-radius: 6px;
+      display: none;
+    }
+
+    #successMessage {
+      background-color: #d4edda;
+      color: #155724;
+    }
+
+    #errorMessage {
+      background-color: #f8d7da;
+      color: #721c24;
+    }
+
+    ul#scheduledNotes {
+      list-style: none;
+      padding: 0;
+      margin-top: 16px;
+      max-height: 180px;
+      overflow-y: auto;
+    }
+
+    .note-item {
+      background-color: white;
+      border: 1px solid #eee;
+      padding: 10px;
+      border-radius: 8px;
+      margin-bottom: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.85rem;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    }
+
+    .note-item span {
+      display: block;
+    }
+
+    .scheduled-time {
+      font-size: 0.75rem;
+      color: #888;
+      margin-top: 4px;
+    }
+
+    .note-item button {
+      background: none;
+      border: none;
+      color: #ff4c4c;
+      font-size: 0.8rem;
+      cursor: pointer;
+    }
+    #footer {
+      margin-top: 20px;
+      text-align: center;
+      font-size: 0.85rem;
+      color: #555;
+    }
+
+    #footer a {
+      color: #ff6719;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    #footer a:hover {
+      text-decoration: underline;
+    }
+
+  </style>
+</head>
+<body>
+<h2>NOTED</h2>
+
+<div class="input-group">
+  <textarea id="noteContent" placeholder="Capture that flash of brilliance..."></textarea>
+  <input type="datetime-local" id="timeSlot">
+  <div id="successMessage">Note scheduled successfully!</div>
+  <button id="scheduleButton">Schedule note</button>
+</div>
+
+
+<div id="errorMessage">Something went wrong...</div>
+
+<ul id="scheduledNotes"></ul>
+<div id="footer">
+  <p>Powered by <a href="https://shipvalue.substack.com" target="_blank">The Product Engineer™</a></p>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>
